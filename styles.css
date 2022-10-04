@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
 
 *,
 *:before,
@@ -29,22 +30,40 @@ body {
   margin: 20px 0;
 }
 
-.main-container {
-  background-color: rgba(213, 191, 224, 0.302);
-  height: 200px;
-  width: 50%;
-  margin: auto;
-}
-
 .add-item-container {
+  height: 200px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-/* #add-item-btn {
+.pencil-icon {
+  font-size: 1.6rem;
+}
+
+.input-box {
+  min-height: 55px;
+  min-width: 325px;
+  margin: 0 50px 0 20px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background-color: rgba(213, 191, 224, 0.302);
+  font-size: 1.5rem;
+  font-family: "Shadows Into Light", cursive;
+  letter-spacing: 0.3rem;
+  color: black;
+}
+
+.no-outline:focus {
+  outline: none;
+}
+
+.add-item-btn {
   background-color: transparent;
-  cursor: pointer; 
-   border-radius: 8px;
+  border-radius: 8px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
   padding: 10px;
-} */
+}
