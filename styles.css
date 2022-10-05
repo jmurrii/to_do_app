@@ -16,7 +16,7 @@ body {
 }
 
 body {
-  background-image: url("assets/to-do_flowers.jpg");
+  background-image: url("assets/minimal-flowers.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -27,7 +27,11 @@ body {
   font-family: "Great Vibes", cursive;
   font-size: 4rem;
   letter-spacing: 0.4rem;
-  margin: 20px 0;
+  margin: 20px 0 0 160px;
+}
+
+.main-container {
+  margin-left: 180px;
 }
 
 .add-item-container {
@@ -45,6 +49,7 @@ body {
   min-height: 55px;
   min-width: 325px;
   margin: 0 50px 0 20px;
+  padding-left: 10px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
   border-top-style: hidden;
   border-right-style: hidden;
@@ -66,4 +71,10 @@ body {
   border-radius: 8px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
   padding: 10px;
+  transition: ease-in-out 0.4s;
+}
+
+.add-item-btn:hover {
+  color: rgb(30, 146, 90);
+  cursor: pointer;
 }
