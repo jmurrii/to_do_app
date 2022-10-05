@@ -5,35 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://kit.fontawesome.com/2a8d98670f.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/2a8d98670f.js"
+      crossorigin="anonymous"
+    ></script>
     <title>To_Do__List_App</title>
   </head>
   <body>
     <h1 class="main-title">To-Do List:</h1>
     <div class="main-container">
-
-      <form action="">
-          <div class="add-item-container">
+      <form onsubmit="return false" action="">
+        <div class="add-item-container">
           <div class="form-group">
-          <i id="penIcon" class="pencil-icon fa-solid fa-pencil"></i>
-        </div>
-        <div class="form-group">
-          <input id="inputItem"  class="input-box no-outline"
-          required
-            type="text"
-        
-            placeholder=".....today I have to......"
-           /></div>
-           <div class="form-group"></div>
-          <button id="add-item-btn"  class="add-item-btn" type="submit">ADD ITEM</button>
+            <i id="penIcon" class="pencil-icon fa-solid fa-pencil"></i>
+          </div>
+          <div class="form-group">
+            <input
+              id="inputField"
+              class="input-box no-outline"
+              required
+              type="text"
+              placeholder=".....today I have to......"
+            />
+          </div>
+          <div class="form-group"></div>
+          <button id="add-item-btn" class="btn" type="submit">ADD ITEM</button>
         </div>
       </form>
+      <div id="to-do-container">
+        <ul></ul>
       </div>
-      
-        <div id="list-items"></div>
-        </div>
     </div>
- 
+
     <script src="script.js"></script>
   </body>
 </html>

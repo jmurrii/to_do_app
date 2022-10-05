@@ -1,15 +1,38 @@
 const penIcon = document.querySelector('#penIcon');
-const inputItem = document.getElementById('inputItem');
-const addItemButton = document.getElementById('add-item-btn');
+const inputField = document.getElementById('inputField');
+const addItemBtn = document.getElementById('add-item-btn');
+
+
 
 
 penIcon.addEventListener('click', function () {
-    inputItem.focus();
+    inputField.focus();
 });
 
 
+const newLi = document.createElement('li');
+const newP = document.createElement('p');
 
-addItemButton.addEventListener('click', () => {
-    alert("okay good, we've wired up the button");
+// let inputValue = document.getElementById('inputField').value;
+// console.log(inputValue);
+
+console.log(newLi);
+newLi.setAttribute("class", "list-style")
+newP.setAttribute("class", "p-style")
+// newP.innerText = "Hello, World!";
+
+const toDoListItem = document.getElementById('to-do-container').getElementsByTagName('ul')[0];
+
+
+
+addItemBtn.addEventListener('click', () => {
+    toDoListItem.appendChild(newLi);
+    newLi.appendChild(newP);
+
+    let inputValue = document.getElementById('inputField').value;
+    console.log(inputValue);
+    newP.innerText = inputValue;
 });
 
+// could do a function called runWhenAddItemIsClicked
+// that calls all the little functions
