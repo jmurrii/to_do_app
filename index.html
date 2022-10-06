@@ -14,7 +14,8 @@
   <body>
     <h1 class="main-title">To-Do List:</h1>
     <div class="main-container">
-      <form onsubmit="return false" action="">
+      <!-- onsubmit="return false"  if I need form to stop sending-->
+      <form action="">
         <div class="add-item-container">
           <div class="form-group">
             <i id="penIcon" class="pencil-icon fa-solid fa-pencil"></i>
@@ -29,11 +30,18 @@
             />
           </div>
           <div class="form-group"></div>
-          <button id="add-item-btn" class="btn" type="submit">ADD ITEM</button>
+          <button
+            onclick="addItem()"
+            id="add-item-btn"
+            class="btn"
+            type="button"
+          >
+            ADD ITEM
+          </button>
         </div>
       </form>
-      <div id="to-do-container">
-        <ul></ul>
+      <div id="to-do-container" class="added-items">
+        <ul id="to-do-list"></ul>
       </div>
     </div>
 

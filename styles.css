@@ -80,16 +80,21 @@ body {
   transition: ease-in-out 0.5s;
 }
 
-.add-item-btn:hover {
+.btn:hover {
   background-color: rgba(51, 113, 99, 0.874);
   color: rgb(204, 225, 215);
   cursor: pointer;
 }
 
-.list-style {
-  background-color: black;
+.added-items {
+  display: flex;
+  align-items: center;
 }
 
-.p-style {
+.list-style {
+  background-color: black;
   color: white;
+  min-height: 35px;
+  min-width: 450px;
+  margin: 0 220px 0 220px;
 }

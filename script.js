@@ -1,8 +1,7 @@
 const penIcon = document.querySelector('#penIcon');
 const inputField = document.getElementById('inputField');
+let inputValue;
 const addItemBtn = document.getElementById('add-item-btn');
-
-
 
 
 penIcon.addEventListener('click', function () {
@@ -10,29 +9,53 @@ penIcon.addEventListener('click', function () {
 });
 
 
-const newLi = document.createElement('li');
-const newP = document.createElement('p');
-
-// let inputValue = document.getElementById('inputField').value;
-// console.log(inputValue);
-
-console.log(newLi);
-newLi.setAttribute("class", "list-style")
-newP.setAttribute("class", "p-style")
-// newP.innerText = "Hello, World!";
-
-const toDoListItem = document.getElementById('to-do-container').getElementsByTagName('ul')[0];
 
 
+// let chores = [];
+// chores.push(inputValue);
+//     console.log("hey hey ", chores);
 
-addItemBtn.addEventListener('click', () => {
-    toDoListItem.appendChild(newLi);
-    newLi.appendChild(newP);
 
-    let inputValue = document.getElementById('inputField').value;
-    console.log(inputValue);
-    newP.innerText = inputValue;
-});
+const toDoList = document.getElementById('to-do-list');
 
-// could do a function called runWhenAddItemIsClicked
-// that calls all the little functions
+
+function addItem() {
+    const newLi = document.createElement('li');
+
+    inputValue = document.getElementById('inputField').value;
+    newLi.innerText = inputValue;
+    newLi.setAttribute("class", "list-style")
+
+    let checkbox = document.createElement('input');
+    checkbox.type = "checkbox";
+
+
+
+    // (B2) APPEND TO LIST
+
+    toDoList.appendChild(newLi);
+    toDoList.insertBefore(checkbox, newLi);
+    // newLi.appendChild(checkbox);
+
+    clearInput();
+
+};
+
+// function createCheckBox() {
+//     let checkbox = document.createElement('input');
+//     checkbox.type = "checkbox";
+//     newLi.appendChild(checkbox);
+// }
+
+
+function clearInput() {
+    document.getElementById('inputField').value = '';
+};
+
+// function createCheckBox(){
+//     let checkbox = document.createElement('input');
+//     checkbox.type = "checkbox";
+// //     checkbox.name = "name";
+// //     checkbox.value = "value";
+// //     checkbox.id = "id";
+// }
