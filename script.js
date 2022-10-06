@@ -11,35 +11,89 @@ penIcon.addEventListener('click', function () {
 
 
 
-// let chores = [];
-// chores.push(inputValue);
-//     console.log("hey hey ", chores);
+let listItems = [];
+
 
 
 const toDoList = document.getElementById('to-do-list');
 
-
+let newLi;
 function addItem() {
-    const newLi = document.createElement('li');
-
+    newLi = document.createElement('li');
     inputValue = document.getElementById('inputField').value;
+    listItems.push(inputValue);
+    console.log("listItems Array", listItems);
     newLi.innerText = inputValue;
-    newLi.setAttribute("class", "list-style")
+    newLi.setAttribute("class", "list-style heyho");
+    // newLi.id = "new-li-item";
+    newLi.id = listIdGenerator();
+
 
     let checkbox = document.createElement('input');
     checkbox.type = "checkbox";
-
-
+    // checkbox.id = "chkBox1";
+    checkbox.id = chkBoxIdGenerator();
+    // checkbox.id = "keep track of different id boxes";
+    checkbox.setAttribute("class", "checkbox")
+    checkbox.setAttribute("onclick", "chkBoxClicked()");
 
     // (B2) APPEND TO LIST
 
     toDoList.appendChild(newLi);
     toDoList.insertBefore(checkbox, newLi);
-    // newLi.appendChild(checkbox);
 
     clearInput();
 
 };
+
+let listId;
+function listIdGenerator() {
+
+    for (let i = 0; i < listItems.length; i++) {
+        listId = i + 1;
+    }
+    console.log("new listId:", listId);
+    return listId;
+}
+
+function chkBoxIdGenerator() {
+    let listIdNum;
+    let randomNum = Math.floor(Math.random() * 100) + 1;
+    console.log(randomNum);
+    let randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+    console.log(randomLetter);
+
+    listIdNum = randomLetter + randomNum;
+
+    return listIdNum;
+}
+
+
+function chkBoxClicked() {
+    console.log("testing, testing, testing");
+
+    console.log("inputValue: ", inputValue);
+    let listItem = document.getElementById(listId);
+
+    listItem.style.textDecoration = "line-through";
+}
+
+
+function clearInput() {
+    document.getElementById('inputField').value = '';
+};
+
+// let checkbox = document.createElement('input');
+
+// function createCheckBox() {
+//     checkbox.type = "checkbox";
+//     checkbox.id = "chkBox1";
+//     // checkbox.id = "keep track of different id boxes";
+//     checkbox.setAttribute("class", "checkbox")
+//     checkbox.setAttribute("onclick", "chkBoxClicked()");
+// }
+
+
 
 // function createCheckBox() {
 //     let checkbox = document.createElement('input');
@@ -47,15 +101,7 @@ function addItem() {
 //     newLi.appendChild(checkbox);
 // }
 
-
-function clearInput() {
-    document.getElementById('inputField').value = '';
-};
-
-// function createCheckBox(){
-//     let checkbox = document.createElement('input');
-//     checkbox.type = "checkbox";
-// //     checkbox.name = "name";
-// //     checkbox.value = "value";
-// //     checkbox.id = "id";
+// function injectNewElements() {
+//     toDoList.appendChild(newLi);
+//     toDoList.insertBefore(checkbox, newLi);
 // }
