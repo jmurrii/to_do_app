@@ -16,8 +16,6 @@ penIcon.addEventListener('click', function () {
     inputField.focus();
 });
 
-
-
 function addItem() {
 
     newLi = document.createElement('li');
@@ -25,13 +23,10 @@ function addItem() {
     newLi.innerText = inputValue;
     newLi.setAttribute("class", "list-style");
 
-
     newCheckbox = document.createElement('input');
     newCheckbox.type = "checkbox";
     newCheckbox.setAttribute("class", "newCheckbox")
     newCheckbox.setAttribute("onclick", "chkBoxClicked(event)");
-
-    // (B2) APPEND TO LIST
 
     toDoList.appendChild(newLi);
     toDoList.insertBefore(newCheckbox, newLi);
