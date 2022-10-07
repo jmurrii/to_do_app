@@ -12,7 +12,7 @@ penIcon.addEventListener('click', function () {
 
 
 let newLi;
-let checkbox;
+let newCheckbox;
 function addItem() {
     newLi = document.createElement('li');
     inputValue = document.getElementById('inputField').value;
@@ -22,23 +22,22 @@ function addItem() {
     newLi.setAttribute("class", "list-style");
     newLi.id = listIdGenerator();
 
-    checkbox = document.createElement('input');
-    checkbox.type = "checkbox";
-    checkbox.id = chkBoxIdGenerator();
-    checkbox.setAttribute("class", "checkbox")
-    checkbox.setAttribute("onclick", "chkBoxClicked()");
+    newCheckbox = document.createElement('input');
+    newCheckbox.type = "checkbox";
+    newCheckbox.id = chkBoxIdGenerator();
+    newCheckbox.setAttribute("class", "newCheckbox")
+    newCheckbox.setAttribute("onclick", "chkBoxClicked(event)");
 
     // (B2) APPEND TO LIST
 
     toDoList.appendChild(newLi);
-    toDoList.insertBefore(checkbox, newLi);
+    toDoList.insertBefore(newCheckbox, newLi);
 
     clearInput();
 };
 
 
 function listIdGenerator() {
-
     for (let i = 0; i < listItems.length; i++) {
         listIdNum = i + 1;
     }
@@ -46,6 +45,7 @@ function listIdGenerator() {
 }
 
 let chkBoxIdNum;
+
 function chkBoxIdGenerator() {
 
     let randomNum = Math.floor(Math.random() * 100) + 1;
@@ -56,42 +56,48 @@ function chkBoxIdGenerator() {
 
 let newDeleteIcon;
 let listItem;
-function chkBoxClicked() {
+let nextSibling;
+let currentCheckBox;
 
-    if (checkbox.checked) {
+function chkBoxClicked(e) {
+    currentCheckBox = e.target;
+    nextSibling = currentCheckBox.nextElementSibling;
 
-        listItem = document.getElementById(listIdNum);
-        listItem.style.textDecoration = "line-through";
 
-        newDeleteIcon = document.createElement('i');
-        newDeleteIcon.setAttribute("class", "fa-regular fa-trash-can delete-icon");
-        newLi.appendChild(newDeleteIcon);
+    console.log("newCheckbox.checked ===", newCheckbox.checked)
+
+    console.log("e.target=== ", e.target);
+    console.log("nextSibling=== ", nextSibling);
+
+
+    if (currentCheckBox.checked) {
+        console.log("newCheckbox clicked");
+        // let currentCheckBox = document.getElementById(chkBoxIdNum);
+        // currentCheckBox = e.target;
+        console.log("currentCheckBox ===", currentCheckBox)
+        // nextSibling = currentCheckBox.nextElementSibling;
+        nextSibling.style.textDecoration = "line-through";
+        console.log("nextSibling ===", nextSibling);
+
+        // newDeleteIcon = document.createElement('i');
+        // newDeleteIcon.setAttribute("class", "fa-regular fa-trash-can delete-icon");
+        // newLi.appendChild(newDeleteIcon);
 
 
     } else {
-        console.log("slick boolean work");
-        listItem = document.getElementById(listIdNum);
-        listItem.style.textDecoration = "none";
+        console.log("newCheckbox UNCLICKED!!!!");
+        // listItem = document.getElementById(listIdNum);
+        // console.log("else statement listIdNum", listIdNum);
+        nextSibling.style.textDecoration = "none";
 
-        newDeleteIcon.remove();
+        // newDeleteIcon.remove();
     }
 
     // newDeleteIcon.setAttribute("onclick");
     // newDeleteIcon.setAttribute("onclick", "removeItem()");
 
-    // checkbox.addEventListener('click', () => {
-    //     console.log("from event listener");
-    //     listItem.style.textDecoration = "line-through";
-    //     newDeleteIcon.remove();
-    // })
 }
 
-function uncheckCheckBox() {
-
-    if (newDeleteIcon) {
-
-    }
-}
 
 // function removeItem() {
 
@@ -107,25 +113,25 @@ function clearInput() {
     document.getElementById('inputField').value = '';
 };
 
-// let checkbox = document.createElement('input');
+// let newCheckbox = document.createElement('input');
 
 // function createCheckBox() {
-//     checkbox.type = "checkbox";
-//     checkbox.id = "chkBox1";
-//     // checkbox.id = "keep track of different id boxes";
-//     checkbox.setAttribute("class", "checkbox")
-//     checkbox.setAttribute("onclick", "chkBoxClicked()");
+//     newCheckbox.type = "newCheckbox";
+//     newCheckbox.id = "chkBox1";
+//     // newCheckbox.id = "keep track of different id boxes";
+//     newCheckbox.setAttribute("class", "newCheckbox")
+//     newCheckbox.setAttribute("onclick", "chkBoxClicked()");
 // }
 
 
 
 // function createCheckBox() {
-//     let checkbox = document.createElement('input');
-//     checkbox.type = "checkbox";
-//     newLi.appendChild(checkbox);
+//     let newCheckbox = document.createElement('input');
+//     newCheckbox.type = "newCheckbox";
+//     newLi.appendChild(newCheckbox);
 // }
 
 // function injectNewElements() {
 //     toDoList.appendChild(newLi);
-//     toDoList.insertBefore(checkbox, newLi);
+//     toDoList.insertBefore(newCheckbox, newLi);
 // }
