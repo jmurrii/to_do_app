@@ -72,16 +72,14 @@ function chkBoxClicked(e) {
 
     if (currentCheckBox.checked) {
         console.log("newCheckbox clicked");
-        // let currentCheckBox = document.getElementById(chkBoxIdNum);
-        // currentCheckBox = e.target;
         console.log("currentCheckBox ===", currentCheckBox)
         // nextSibling = currentCheckBox.nextElementSibling;
         nextSibling.style.textDecoration = "line-through";
         console.log("nextSibling ===", nextSibling);
 
-        // newDeleteIcon = document.createElement('i');
-        // newDeleteIcon.setAttribute("class", "fa-regular fa-trash-can delete-icon");
-        // newLi.appendChild(newDeleteIcon);
+        newDeleteIcon = document.createElement('i');
+        newDeleteIcon.setAttribute("class", "fa-regular fa-trash-can delete-icon");
+        nextSibling.appendChild(newDeleteIcon);
 
 
     } else {
@@ -90,7 +88,7 @@ function chkBoxClicked(e) {
         // console.log("else statement listIdNum", listIdNum);
         nextSibling.style.textDecoration = "none";
 
-        // newDeleteIcon.remove();
+        newDeleteIcon.remove();
     }
 
     // newDeleteIcon.setAttribute("onclick");
