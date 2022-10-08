@@ -16,4 +16,5 @@ I also learned how to use the target event property and use the information it r
 
 ## Author
 John Murray - _Software Developer_
+
 [LinkedIn](https://www.linkedin.com/in/jmurrii/)
