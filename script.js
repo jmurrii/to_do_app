@@ -52,6 +52,8 @@ function chkBoxClicked(e) {
         nextSibling.style.textDecoration = "none";
         newDeleteIcon.remove();
     }
+    // maybe try and reset currentCheckBox here to stop that little bug
+    // or reset placeholder 
 }
 
 function removeItem(e) {
