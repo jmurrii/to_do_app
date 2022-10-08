@@ -1,6 +1,7 @@
 # to_do_app
 
 A simple To-Do List Application.
+
 Languages Used:  HTML / CSS / JavaScript
 
 View the application [here](https://jmurrii.github.io/to_do_app/)
