@@ -90,12 +90,6 @@ body {
   cursor: pointer;
 }
 
-.added-list-items {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
 .new-item-added {
   display: flex;
   justify-content: center;

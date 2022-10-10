@@ -1,4 +1,5 @@
 const penIcon = document.querySelector('#penIcon');
+const addItemButton = document.getElementById('add-item-btn');
 const inputField = document.getElementById('inputField');
 const toDoList = document.getElementById('to-do-list');
 
@@ -6,6 +7,15 @@ const toDoList = document.getElementById('to-do-list');
 penIcon.addEventListener('click', function () {
     inputField.focus();
 });
+
+
+addItemButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    if (inputField.value == '');
+    return addItem();
+})
+
 
 
 function addItem() {
