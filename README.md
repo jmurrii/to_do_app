@@ -7,7 +7,7 @@ Languages Used:  HTML / CSS / JavaScript
 View the application [here](https://jmurrii.github.io/to_do_app/)
 
 
-![My Image]()
+![My Image](assets/to_do_screenshot.png)
 
 ## Summary
 In the Fifth exercise of Andy Sterkowitz' Software Development Mastermind Program, I was given the task of creating a To-Do List application.
