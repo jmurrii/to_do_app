@@ -1,72 +1,61 @@
 const penIcon = document.querySelector('#penIcon');
 const inputField = document.getElementById('inputField');
-const addItemBtn = document.getElementById('add-item-btn');
 const toDoList = document.getElementById('to-do-list');
-let inputValue;
-let newLi;
-let newCheckbox;
-let thisDeleteIcon;
-let siblingCheckbox;
-let newDeleteIcon;
-let listItem;
-let nextSibling;
-let currentCheckBox;
+
 
 penIcon.addEventListener('click', function () {
     inputField.focus();
 });
 
+
 function addItem() {
 
-    newLi = document.createElement('li');
-    inputValue = document.getElementById('inputField').value;
-    newLi.innerText = inputValue;
-    newLi.setAttribute("class", "list-style");
+    let newItemDiv = document.createElement('div');
+    newItemDiv.setAttribute("class", "item-added");
 
-    newCheckbox = document.createElement('input');
+    let newListItem = document.createElement('li');
+    let inputValue = document.getElementById('inputField').value;
+    newListItem.innerText = inputValue;
+    newListItem.setAttribute("class", "list-style");
+
+    let newCheckbox = document.createElement('input');
     newCheckbox.type = "checkbox";
     newCheckbox.setAttribute("class", "newCheckbox")
     newCheckbox.setAttribute("onclick", "chkBoxClicked(event)");
 
-    toDoList.appendChild(newLi);
-    toDoList.insertBefore(newCheckbox, newLi);
+    toDoList.appendChild(newItemDiv);
+    newItemDiv.appendChild(newCheckbox);
+    newItemDiv.appendChild(newListItem);
 
     clearInput();
 };
 
-
 function chkBoxClicked(e) {
-    currentCheckBox = e.target;
-    nextSibling = currentCheckBox.nextElementSibling;
+    let currentCheckBox = e.target;
+    let adjacentListItem = currentCheckBox.nextElementSibling;
 
     if (currentCheckBox.checked) {
 
-        nextSibling.style.textDecoration = "line-through";
-
-        newDeleteIcon = document.createElement('i');
-        newDeleteIcon.setAttribute("class", "fa-regular fa-trash-can delete-icon");
-        newDeleteIcon.setAttribute("onclick", "removeItem(event)");
-        nextSibling.append(newDeleteIcon);
-
+        adjacentListItem.style.textDecoration = "line-through";
+        let newDeleteBtn = document.createElement('i');
+        newDeleteBtn.setAttribute("class", "fa-regular fa-trash-can delete-icon");
+        newDeleteBtn.setAttribute("onclick", "removeItem(event)");
+        adjacentListItem.after(newDeleteBtn);
     } else {
-        nextSibling.style.textDecoration = "none";
-        newDeleteIcon.remove();
+
+        adjacentListItem.style.textDecoration = "none";
+
+        let adjacentDeleteBtn = adjacentListItem.nextElementSibling;
+        adjacentDeleteBtn.remove();
     }
-    // maybe try and reset currentCheckBox here to stop that little bug
-    // or reset placeholder 
 }
 
 function removeItem(e) {
 
-    thisDeleteIcon = e.target;
-    siblingCheckbox = thisDeleteIcon.parentElement.previousElementSibling;
-
-    thisDeleteIcon.parentElement.remove();
-    siblingCheckbox.remove();
-
+    let currentDeleteBtn = e.target;
+    currentDeleteBtn.parentElement.remove();
 }
 
 function clearInput() {
     document.getElementById('inputField').value = '';
 };
-
