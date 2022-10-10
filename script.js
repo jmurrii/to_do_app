@@ -11,7 +11,7 @@ penIcon.addEventListener('click', function () {
 function addItem() {
 
     let newItemDiv = document.createElement('div');
-    newItemDiv.setAttribute("class", "item-added");
+    newItemDiv.setAttribute("class", "new-item-added");
 
     let newListItem = document.createElement('li');
     let inputValue = document.getElementById('inputField').value;

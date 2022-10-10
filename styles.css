@@ -32,7 +32,7 @@ body {
 }
 
 .main-container {
-  margin-left: 220px;
+  margin-left: 150px;
 }
 
 .add-item-container {
@@ -90,15 +90,21 @@ body {
   cursor: pointer;
 }
 
-.item-added {
+.added-list-items {
+  width: 100%;
   display: flex;
-  align-items: center;
+  justify-content: center;
+}
+
+.new-item-added {
+  display: flex;
+  justify-content: center;
 }
 
 .list-style {
   list-style: none;
   min-height: 35px;
-  min-width: 350px;
+  min-width: 300px;
   margin-left: 50px;
   background-color: transparent;
   font-family: "Shadows Into Light", cursive;
@@ -108,18 +114,9 @@ body {
 .delete-icon {
   font-size: 1.6rem;
   transition: ease-in-out 0.3s;
-  margin-left: 50px;
 }
 
 .delete-icon:hover {
   cursor: pointer;
   color: rgba(192, 51, 51, 0.631);
-}
-.newCheckbox {
-  position: absolute;
-
-  left: 200px;
-  height: 15px;
-  width: 15px;
-  background-color: black;
 }
