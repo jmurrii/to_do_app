@@ -12,7 +12,11 @@ penIcon.addEventListener('click', function () {
 addItemButton.addEventListener("click", (event) => {
     event.preventDefault();
 
-    if (inputField.value == '');
+    if (inputField.value == '') return;
+    if (inputField.value.trim().length == 0) {
+        clearInput();
+        return;
+    };
     return addItem();
 })
 
@@ -20,18 +24,11 @@ addItemButton.addEventListener("click", (event) => {
 
 function addItem() {
 
-    let newItemDiv = document.createElement('div');
+    const newItemDiv = document.createElement('div');
     newItemDiv.setAttribute("class", "new-item-added");
 
-    let newListItem = document.createElement('li');
-    let inputValue = document.getElementById('inputField').value;
-    newListItem.innerText = inputValue;
-    newListItem.setAttribute("class", "list-style");
-
-    let newCheckbox = document.createElement('input');
-    newCheckbox.type = "checkbox";
-    newCheckbox.setAttribute("class", "newCheckbox")
-    newCheckbox.setAttribute("onclick", "chkBoxClicked(event)");
+    const newListItem = createListItem();
+    const newCheckbox = createNewCheckbox();
 
     toDoList.appendChild(newItemDiv);
     newItemDiv.appendChild(newCheckbox);
@@ -40,7 +37,25 @@ function addItem() {
     clearInput();
 };
 
-function chkBoxClicked(e) {
+function createListItem() {
+    const newListItem = document.createElement('li');
+    let inputValue = document.getElementById('inputField').value;
+    newListItem.innerText = inputValue;
+    newListItem.setAttribute("class", "list-style");
+    return newListItem;
+}
+
+function createNewCheckbox() {
+    const newCheckbox = document.createElement('input');
+    newCheckbox.type = "checkbox";
+    newCheckbox.setAttribute("class", "newCheckbox")
+    newCheckbox.addEventListener('click', (e) => {
+        checkBoxClicked(e);
+    });
+    return newCheckbox;
+}
+
+function checkBoxClicked(e) {
     let currentCheckBox = e.target;
     let adjacentListItem = currentCheckBox.nextElementSibling;
 
@@ -49,7 +64,9 @@ function chkBoxClicked(e) {
         adjacentListItem.style.textDecoration = "line-through";
         let newDeleteBtn = document.createElement('i');
         newDeleteBtn.setAttribute("class", "fa-regular fa-trash-can delete-icon");
-        newDeleteBtn.setAttribute("onclick", "removeItem(event)");
+        newDeleteBtn.addEventListener('click', () => {
+            removeItem(e);
+        });
         adjacentListItem.after(newDeleteBtn);
     } else {
 
